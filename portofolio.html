@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Fertina Yolanda | Technology & Consulting</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ======================================== */
+        /* ==     VARIABEL GAYA GLOBAL           == */
+        /* ======================================== */
+        :root {
+            /* Palet Warna "Accenture Style" */
+            --bg-white: #ffffff;
+            --bg-light-gray: #f9f9f9; /* Latar belakang adem di mata */
+            --text-dark: #1a1a1a;
+            --text-light: #555555;
+            --primary-blue: #003366;  /* Biru Korporat Profesional */
+            --accent-magenta: #A100FF; /* Aksen "Tech" (Logo Accenture) */
+            --border-gray: #eaeaea;   /* Garis pemisah yang lembut */
+        }
+
+        /* --- Reset Dasar & Pengaturan Font --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sentuhan CSS: Membuat scroll mulus saat klik link internal */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif; /* Font User-Friendly */
+            font-size: 1.1rem; /* Ukuran font nyaman dibaca */
+            line-height: 1.7;  /* Jarak antar baris (Tidak sakit mata) */
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1100px; /* Batas lebar konten agar tidak terlalu lebar */
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* --- Hirarki Judul (Penting untuk HR Scan) --- */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        
+        p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        section {
+            padding: 70px 0; /* Memberi "ruang napas" antar section */
+        }
+        
+        /* --- Tombol Aksi (CTA) --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-magenta);
+            color: var(--bg-white);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 5px;
+            /* Sentuhan CSS: Transisi halus saat di-hover */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #8a00d4; /* Warna sedikit lebih gelap */
+            transform: translateY(-3px); /* Efek sedikit terangkat */
+        }
+
+        /* ======================================== */
+        /* ==     BAGIAN HERO (PROFIL UTAMA)     == */
+        /* ======================================== */
+        header.hero {
+            background-color: var(--bg-white);
+            min-height: 90vh; /* Tinggi 90% layar, HR tahu bisa di-scroll */
+            display: flex; /* Untuk centering konten */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        /* [BARU] Styling untuk Foto Profil */
+        .hero-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Membuat foto jadi bulat */
+            object-fit: cover; /* Memastikan foto tidak gepeng */
+            border: 4px solid var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .hero .job-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+        }
+
+        .hero .summary {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* ======================================== */
+        /* ==     [PERBARUAN] BAGIAN KEAHLIAN    == */
+        /* ======================================== */
+        #skills {
+            background-color: var(--bg-light-gray); /* Latar abu-abu lembut */
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            /* Sentuhan CSS: Bayangan lembut */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        
+        .skill-card h3 {
+            border-bottom: 3px solid var(--accent-magenta);
+            padding-bottom: 10px;
+        }
+        
+        .skill-item-wrapper {
+            margin-top: 20px;
+        }
+        
+        /* Ini adalah "Blok Keahlian" (Judul + Elaborasi + Bukti) */
+        .skill-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        .skill-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .skill-item h4 {
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        
+        .skill-item p {
+            font-size: 1rem; /* Elaborasi dibuat sedikit lebih kecil */
+            margin-bottom: 15px;
+        }
+        
+        /* Styling untuk Gambar Bukti (Agar Rapi) */
+        img.proof-image {
+            width: 100%;
+            max-height: 350px; /* Batas tinggi agar tidak "sakit mata" */
+            object-fit: contain; /* Jaga rasio aspek */
+            background-color: #f0f0f0;
+            border: 1px solid var(--border-gray);
+            border-radius: 5px;
+        }
+        
+        /* ======================================== */
+        /* ==     BAGIAN PROYEK (STUDI KASUS)    == */
+        /* ======================================== */
+        #projects {
+            background-color: var(--bg-white);
+        }
+
+        .project-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            display: flex; /* WAJIB: Membuat 2 kolom */
+            flex-wrap: wrap; 
+            overflow: hidden;
+        }
+        
+        .project-content {
+            flex: 2; /* Kolom Konten Teks mendapat 2/3 ruang */
+            min-width: 300px;
+            padding: 35px;
+        }
+        .visual-column-container {
+            flex: 1; /* Kolom Visual mendapat 1/3 ruang */
+            background-color: var(--bg-light-gray); /* Latar belakang abu-abu untuk kontras */
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* WAJIB: Menumpuk AS-IS dan TO-BE secara vertikal */
+            align-items: flex-start;
+            /*align-items: center;
+            justify-content: center;*/
+        }
+        
+        .project-content h3 {
+            margin-bottom: 5px;
+        }
+        
+        .project-role {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .project-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .project-content li {
+            position: relative;
+            padding-left: 25px; 
+            margin-bottom: 10px;
+        }
+        
+        /* Sentuhan CSS: Bullet point "Accenture Style" > */
+        .project-content li::before {
+            content: '>'; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-magenta);
+            font-weight: bold;
+            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .project-tags {
+            margin-top: 20px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #eef;
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Styling untuk Tautan Detail Proyek */
+        .project-links {
+            margin-top: 20px;
+            margin-bottom: 20px; /* Memberi jarak dari bullet point dan tags */
+        }
+
+        .detail-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--accent-magenta); /* Warna aksen Anda (Ungu/Magenta) */
+            color: var(--bg-white);
+            text-decoration: none; /* Menghilangkan garis bawah */
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .detail-link:hover {
+            background-color: #8B008B; /* Warna yang sedikit lebih gelap saat di-hover */
+        }
+        
+        /* ======================================== */
+        /* ==     BAGIAN PENGALAMAN (KEGIATAN)   == */
+        /* ======================================== */
+        #experience {
+            background-color: var(--bg-light-gray);
+        }
+        
+        /* Grid 2 kolom, fokus pada teks */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .experience-card {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+        }
+        
+        .experience-card h4 {
+            margin-bottom: 2px;
+        }
+        
+        .experience-role {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .experience-card ul {
+            list-style-position: inside;
+            padding-left: 5px;
+        }
+        /* Styling untuk gambar logo di experience card */
+        .experience-card {
+            position: relative; /* Wajib: Agar logo bisa diposisikan absolut relatif terhadap card */
+            /* CSS sisanya tetap sama */
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+        }
+
+        .experience-logo {
+            position: absolute; /* Memungkinkan penempatan di pojok */
+            top: 20px;
+            right: 20px;
+            width: 50px; /* Ukuran yang kecil agar tidak mendominasi */
+            height: auto;
+            object-fit: contain;
+            opacity: 0.8; /* Sedikit transparan agar terlihat elegan */
+        }
+
+        /* ======================================== */
+        /* ==     BAGIAN PENDIDIKAN            == */
+        /* ======================================== */
+        /* General Styling untuk Experience dan Education Grid */
+        .education-grid,
+        .experience-grid {
+            display: grid;
+            /* Membuat 2 kolom */
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px;
+            align-items: center;
+            /* Batas lebar konten agar tetap di tengah */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+       #education {
+        background-color: var(--bg-light-gray); /* Background abu-abu lembut */
+        padding-bottom: 50px;
+        }
+
+        .education-text {
+            text-align: left; /* Teks di kolom kiri rata kiri */
+        }
+
+        .education-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .education-context {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-top: 15px;
+            padding-top: 10px;
+            /* Garis putus-putus sebagai pemisah elegan */
+            border-top: 1px dashed var(--border-gray);
+        }
+
+
+/* ======================================== */
+/* ==  RESPONSIVE CSS (PENTING)          == */
+/* ======================================== */
+@media (max-width: 768px) {
+    /* Stack grid di HP */
+    .education-grid,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+        /* ======================================== */
+        /* ==     BAGIAN FOOTER (KONTAK)         == */
+        /* ======================================== */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 70px 20px;
+        }
+        
+        footer h2 {
+            color: var(--bg-white);
+        }
+        
+        footer p {
+            color: #eee;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .footer-links {
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: var(--bg-white);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            /* Sentuhan CSS: Transisi halus */
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-magenta); /* Warna aksen saat di-hover */
+        }
+        
+        .footer-availability {
+            font-size: 1rem;
+            color: #ccc;
+            margin-top: 30px;
+            border-top: 1px solid #336699; /* Garis pemisah halus */
+            padding-top: 20px;
+            display: inline-block;
+        }
+
+        /* ======================================== */
+        /* ==     RESPONSIVE (MOBILE FRIENDLY)   == */
+        /* ======================================== */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .job-title {
+                font-size: 1.2rem;
+            }
+            
+            .hero .summary {
+                font-size: 1rem;
+            }
+
+            /* Semua grid di-stack jadi 1 kolom di HP */
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            
+            <img src="foto-profil.jpg" alt="Foto Profil Fertina Yolanda" class="hero-img">
+            
+            <h1>Fertina Yolanda</h1>
+            <p class="job-title">TECHNOLOGY & CONSULTING</p>
+            <p class="summary">Currently a 3rd-year student pursuing Applied Science (D4/S.Tr.) with a 3.85 GPA, focused on digital transformation and system implementation. Seeking a Technology & Consulting internship, I am experienced in translating business requirements into structured system designs.</p>
+            
+            <a href="#projects" class="cta-button">View Case Studies</a>
+        </div>
+    </header>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Applied Capabilities & Proof</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3>ERP & Process Implementation</h3>
+                    <div class="skill-item-wrapper">
+                        
+                        <div class="skill-item">
+                            <h4>PLM & Quality Integration</h4>
+                            <p>Designed custom system logic for complex ERP modules (PLM, Quality), focusing on optimizing operational efficiency, managing formula versioning per market, and implementing digital QC checkpoints.</p>
+                            <img src="placeholder-odoo-1.png" alt="Bukti Odoo atau Alur Proses" class="proof-image">
+                            <img src="placeholder-odoo-2.png" alt="Bukti Odoo atau Alur Proses" class="proof-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Technology & Database Architecture</h3>
+                    <div class="skill-item-wrapper">
+                        
+                        <div class="skill-item">
+                            <h4>MySQL</h4>
+                            <img src="placeholder-sql.png" alt="Bukti Skema Database MySQL" class="proof-image">
+                            
+                        </div>
+                        
+                        <div class="skill-item">
+                            <h4>Progamming (PHP)</h4>
+                            <p>Visual proof of User Flow State Management and the Server-Side Validation Process for system login on YollandaCollection</p>
+                             <img src="placeholder-php.png" alt="Bukti Skema Database MySQL" class="proof-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Data Analysis & Modeling</h3>
+                    <div class="skill-item-wrapper">
+
+                        <div class="skill-item">
+                            <h4> Excel </h4>
+                            <img src="placeholder-excel.png" alt="Bukti Sertifikat Excel atau Hasil Rute" class="proof-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Digital Solution & UI/UX</h3>
+                    <div class="skill-item-wrapper">
+
+                        <div class="skill-item">
+                            <h4>Figma (Wireframes, Prototyping)</h4>
+                            <p>Interface Design & User Flow Visualization for Yollanda Collection E-Commerce.</p>
+                            <img src="placeholder-figma.png" alt="Bukti Desain Figma" class="proof-image">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Solution and Impact</h2>
+            
+            <article class="project-card">
+                <div class="visual-column-container">
+                    <img src="limov-jasung-kolase.png" alt="Limov x Jasung UI/UX Strategy Mockup" 
+                        style="width: 100%; height: auto; object-fit: contain; border: 1px solid var(--border-gray); max-height: 500px;">
+                    <p style="text-align: center; font-size: 0.9rem; color: #555; margin-top: 10px;">(Initial Sketch/Low-Fidelity Mockup: Strategic visualization of the Information Architecture for Lead Generation and Enterprise Client Profiling. Project is currently on-going.)</p>
+                </div>
+
+                <div class="project-content">
+                    <h3>LIMOV x JASUNG</h3>
+                    <p class="project-role">Web Developer (UI/UX Strategy & Implementation) - On-Going</p>
+                    
+                    <p>Collaborated with Limov, a material-handling solutions provider serving enterprise clients such as PT Freeport Indonesia, to support the market introduction of Jasung, a market-leading Permanent Magnet Direct-Drive (PMDD) industrial drive solution.</p>
+
+                    <p>Contributed to translating the complex business vision from two key stakeholders (Director & HR) into a user-centric web interface design.</p>
+                    <ul>
+                        <li>Contributed to <strong>requirements discovery</strong> with 2 key stakeholders (<strong>Director & HR</strong>) to define <strong>product positioning</strong> and <strong>enterprise buyer evaluation logic</strong>.</li>
+                        <li>Developed the <strong>preliminary UI/UX structure</strong> and <strong>Information Architecture</strong> (Low-Fidelity Mockup) to guide the future high-fidelity design in Figma, ensuring <strong>clear product value communication</strong>.</li>
+                        <li>Coordinated the <strong>design-to-development handoff</strong> to ensure <strong>alignment</strong> between messaging, interface behavior, and <strong>implementation</strong>.</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Low-Fidelity Design</span>
+                        <span class="tag">Stakeholder Management</span>
+                        <span class="tag">Canva</span>
+                        <span class="tag">Digital Branding</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <div class="project-content">
+                    <h3>Odoo Pitch Cup</h3>
+                    <p class="project-role">Team Leader (System Analysis & Design)</p>
+                    
+                    <p>A formal competition hosted by Odoo Indonesia, requiring participants to analyze real business case scenarios and design ERP implementation solutions using the Odoo platform.</p>
+
+                    <p>Developed an ERP system blueprint to resolve major production workflow coordination issues and optimize operational efficiency.</p>
+                    <ul>
+                        <li>Led the methodology to analyze 7 AS-IS process flows (Sales, Production, QC) to identify 10 coordination bottlenecks, focusing on 5 key operational issues in production, formula standardization, and QC.</li>
+                        <li>Designed 1 TO-BE production workflow scenario and configured Odoo modules (Multi-BOM, Routing, QC) to streamline operations and standardize processes, serving as a system blueprint for team implementation.</li>
+                    </ul>
+                    <div class="project-links"> 
+                        <a href="Odoo-Pitch-Cup-2025.pdf" target="_blank" class="detail-link">
+                            View Full Solution Deck 📄
+                        </a>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">ERP Implementation</span>
+                        <span class="tag">Process Mapping (AS-IS/TO-BE)</span>
+                        <span class="tag">Odoo</span>
+                        <span class="tag">QC</span>
+                    </div>
+                </div>
+                
+                <div class="visual-column-container">
+                    <p style="text-align: center; color: var(--primary-blue); font-weight: 700; margin-bottom: 10px; font-size: 0.95rem;">AS-IS Bottleneck Analysis</p>
+                    <img src="flowchart-as-is.png" alt="AS-IS Bottleneck Analysis" style="width: 100%; height: auto; margin-bottom: 20px; border: 1px solid var(--border-gray);">
+
+                    <p style="text-align: center; color: var(--primary-blue); font-weight: 700; margin-bottom: 10px; font-size: 0.95rem;">TO-BE Solution Flowchart</p>
+                    <img src="flowchart-to-be-odoo.png" alt="TO-BE Process Flow for Odoo Implementation" style="width: 100%; height: auto; border: 1px solid var(--border-gray);">
+                </div>
+            </article>
+            
+            
+           <article class="project-card">
+                <div class="project-content">
+                    <h3>YollandaCollection (E-Commerce)</h3>
+                    <p class="project-role">Web Developer (Backend Architecture & Implementation)</p>
+                    
+                    <p>Developed a custom e-commerce web application for an MSME use case, with full control over backend logic and data structure.</p>
+
+                    <p>Built a scalable and robust backend foundation to manage core e-commerce operations and ensure system reliability.</p>
+                    
+                    <ul>
+                        <li>Designed MySQL architecture and a <strong>10+ table relational schema</strong> to manage core e-commerce operations efficiently.</li>
+                        <li>Established clear <strong>1:N and N:N relationships</strong>, ensuring a <strong>normalized data structure</strong> for future feature development.</li>
+                        <li>Implemented <strong>backend validation logic (PHP)</strong> to manage user flow and ensure <strong>data integrity</strong> (e.g., stock availability).</li>
+                        <li>Coordinated development tasks within a <strong>3-person team</strong>, aligning code structures to reduce merge conflicts and ensure efficient implementation.</li>
+                    </ul>
+
+                    <p style="font-weight: bold; color: var(--primary-blue);">Result: System architecture improved consistency in data operations and reduced onboarding friction — enabling features to be added without restructuring the core schema.</p>
+
+                    <div class="project-tags">
+                        <span class="tag">Backend Architecture</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">Data Integrity</span>
+                        <span class="tag">E-Commerce</span>
+                    </div>
+                </div>
+                
+                <div class="visual-column-container">
+                    <p style="text-align: center; color: var(--primary-blue); font-weight: 700; margin-bottom: 10px; font-size: 0.95rem;">Database Relational Schema</p>
+                    <img src="erd-yollanda-collection.png" alt="ERD and PHP Validation Snippet" style="width: 100%; height: auto; border: 1px solid var(--border-gray);">
+
+                    <p style="text-align: center; font-size: 0.9rem; color: #555; margin-top: 10px;">(ERD showing 1:N and N:N relationships.)</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2>Organizational Experience</h2>
+            <div class="experience-grid">
+                
+                <div class="experience-card">
+                    <h4>ECLIVAL</h4>
+                    <img src="logo-eclival.jpg" alt="Logo ECLIVAL" class="experience-logo">
+                    <p class="experience-role">Program Division</p>
+                    
+                    <p style="font-size: 1rem; color: #777; margin-bottom: 15px;">A program-specific event for the Digital Commerce & Supply Chain (DCSC) department, designed to introduce students to the program and promote peer engagement.</p>
+                    
+                    <ul>
+                        <li>Led the strategic design of the program, conceptualizing 5 key events (3 distinct workshops, 2 major competitions) to drive student engagement.</li>
+                        <li>Managed cross-functional coordination with 4 divisions, overseeing resource logistics and leading full rehearsals to mitigate execution risks.</li>
+                    </ul>
+                </div>
+                
+               <div class="experience-card">
+                    <h4>ANAGATA</h4>
+                    <img src="logo-anagata.png" alt="Logo ANAGATA" class="experience-logo">
+                    <p class="experience-role">MC & Event Division</p>
+                    
+                    <p style="font-size: 1rem; color: #777; margin-bottom: 15px;">A 3-day pre-orientation program for incoming students, introducing campus culture, departments, and activities while fostering peer bonding.</p>
+
+                    <ul>
+                        <li>Hosted and facilitated a 3-day orientation program, managing session flow and driving active engagement for 100+ new students.</li>
+                        <li>Performed feasibility analysis on activities and designed contingency plans ("Plan B") to mitigate potential execution risks.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>EDUCATION</h2>
+            <div class="education-grid">
+                
+                <div class="education-text">
+                    
+                    <h3>Multimedia Nusantara Polytechnic (MNP)</h3>
+                    
+                    <p class="degree" style="font-size: 1.1rem;">Pursuing Applied Science Degree (D4/S.Tr.), Digital Commerce & Supply Chain</p>
+                    <p class="gpa">GPA: 3.85 / 4.00 (100% Scholarship Recipient)</p>
+                    
+                    <div class="education-context">
+                        MNP is part of the Kompas Gramedia Group's educational ecosystem and shares the same foundation as the nationally accredited "A" institution, UMN. This foundation guarantees a strong commitment to quality and readiness for global challenges.
+                    </div>
+                </div>
+                
+                <div class="education-image">
+                    <img src="gedung-pmn.jpg" alt="Multimedia Nusantara Polytechnic Campus Building">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <footer id="contact">
+        <div class="container">
+            <h2>LET'S CONNECT</h2> 
+            
+            <p>I am actively seeking a Technology & Consulting internship and eager to apply my analytical skills to drive digital transformation. Let's discuss my contribution.</p>
+            
+            <div class="footer-links">
+                <a href="mailto:fertinayolanda72@gmail.com">Email</a>
+                <span>&bull;</span>
+                <a href="https://www.linkedin.com/in/fertina-yolanda" target="_blank">LinkedIn</a> 
+                <span>&bull;</span>
+                <a href="tel:+6281905523331">Phone/WhatsApp</a> 
+            </div>
+            
+            <div class="footer-availability">
+                <p>Availability: 6 Months (January - June 2026)</p>
+            </div>
+            
+        </div>
+    </footer>
+
+</body>
+</html>
